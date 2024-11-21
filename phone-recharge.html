@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Recharge</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+        }
+        input, select {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        input::placeholder, select {
+            color: #ddd;
+        }
+        button {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.5);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phone Recharge</h1>
+        <form action="/recharge" method="POST">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" maxlength="10" required>
+
+            <label for="operator">Select Operator</label>
+            <select id="operator" name="operator" required>
+                <option value="" disabled selected>Choose Operator</option>
+                <option value="Airtel">Airtel</option>
+                <option value="Jio">Jio</option>
+                <option value="Vodafone">Vodafone</option>
+                <option value="BSNL">BSNL</option>
+            </select>
+
+            <label for="rechargeAmount">Recharge Amount</label>
+            <input type="number" id="rechargeAmount" name="rechargeAmount" placeholder="Enter amount (₹)" min="10" max="5000" required>
+
+            <label for="planType">Plan Type</label>
+            <select id="planType" name="planType" required>
+                <option value="" disabled selected>Select Plan Type</option>
+                <option value="Prepaid">Prepaid</option>
+                <option value="Postpaid">Postpaid</option>
+            </select>
+
+            <button type="submit">Recharge Now</button>
+        </form>
+    </div>
+</body>
+</html>

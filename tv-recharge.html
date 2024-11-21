@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Recharge</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .container {
+            position: relative;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        input, select, button {
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+        }
+        input, select {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-align: center;
+        }
+        input::placeholder {
+            color: #ddd;
+        }
+        button {
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>TV Recharge</h1>
+        <form action="/tvRecharge" method="POST">
+            <label for="subscriberId">Subscriber ID</label>
+            <input type="text" id="subscriberId" name="subscriberId" placeholder="Enter your Subscriber ID" required>
+
+            <label for="provider">Service Provider</label>
+            <select id="provider" name="provider" required>
+                <option value="" disabled selected>Select Provider</option>
+                <option value="Tata Play">Tata Play</option>
+                <option value="Dish TV">Dish TV</option>
+                <option value="Airtel Digital TV">Airtel Digital TV</option>
+                <option value="Sun Direct">Sun Direct</option>
+            </select>
+
+            <label for="rechargeAmount">Recharge Amount</label>
+            <input type="number" id="rechargeAmount" name="rechargeAmount" placeholder="Enter amount (₹)" min="50" max="5000" required>
+
+            <label for="planDuration">Plan Duration</label>
+            <select id="planDuration" name="planDuration" required>
+                <option value="" disabled selected>Select Duration</option>
+                <option value="1 Month">1 Month</option>
+                <option value="3 Months">3 Months</option>
+                <option value="6 Months">6 Months</option>
+                <option value="1 Year">1 Year</option>
+            </select>
+
+            <button type="submit">Recharge Now</button>
+        </form>
+    </div>
+</body>
+</html>

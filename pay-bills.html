@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Bills - ElectronPay</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        input, select {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-align: center;
+        }
+        input::placeholder {
+            color: #ddd;
+        }
+        button {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+        }
+        .bill-details {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffd700;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Your Bill</h1>
+        <form id="billForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit">Generate Bill</button>
+        </form>
+        <div id="billDetails" class="bill-details" style="display: none;">
+            <h2>Bill Details</h2>
+            <p id="billEmail"></p>
+            <p><strong>Bill Amount:</strong> ₹<span id="billAmount"></span></p>
+            <p><strong>Due Date:</strong> <span id="dueDate"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('billForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const billDetails = document.getElementById('billDetails');
+            const billEmail = document.getElementById('billEmail');
+            const billAmount = document.getElementById('billAmount');
+            const dueDate = document.getElementById('dueDate');
+
+            // Validate email
+            const validEmails = ["lina.patil@gmail.com", "yogita.pawar@gmail.com","ashwinikakadeb@gmail.com"];
+            const randomBill = Math.floor(Math.random() * (5000 - 500 + 1)) + 500; // Random bill between ₹500 and ₹5000
+            const today = new Date();
+            const due = new Date();
+            due.setDate(today.getDate() + 10); // Due date 10 days from today
+
+            if (validEmails.includes(email)) {
+                billDetails.style.display = "block";
+                billEmail.textContent = `Email: ${email}`;
+                billAmount.textContent = randomBill;
+                dueDate.textContent = due.toLocaleDateString();
+            } else {
+                alert("Email not registered!");
+                billDetails.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

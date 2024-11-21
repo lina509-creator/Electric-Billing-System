@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Ticket Booking</h1>
+        <form action="/bookFlight" method="POST">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="from">From (Departure Airport)</label>
+            <select id="from" name="from" required>
+                <option value="" disabled selected>Select Departure</option>
+                <option value="New York (JFK)">New York (JFK)</option>
+                <option value="Los Angeles (LAX)">Los Angeles (LAX)</option>
+                <option value="Chicago (ORD)">Chicago (ORD)</option>
+            </select>
+
+            <label for="to">To (Destination Airport)</label>
+            <select id="to" name="to" required>
+                <option value="" disabled selected>Select Destination</option>
+                <option value="London (LHR)">London (LHR)</option>
+                <option value="Dubai (DXB)">Dubai (DXB)</option>
+                <option value="Tokyo (HND)">Tokyo (HND)</option>
+            </select>
+
+            <label for="departureDate">Departure Date</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+
+            <label for="returnDate">Return Date (Optional)</label>
+            <input type="date" id="returnDate" name="returnDate">
+
+            <label for="passengers">Number of Passengers</label>
+            <input type="number" id="passengers" name="passengers" min="1" max="10" required>
+
+            <label for="class">Class</label>
+            <select id="class" name="class" required>
+                <option value="" disabled selected>Select Class</option>
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+            </select>
+
+            <button type="submit">Book Flight</button>
+        </form>
+    </div>
+</body>
+</html>

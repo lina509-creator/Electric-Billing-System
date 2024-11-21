@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:whitesmoke;
+}
+
+.navbar-dark.bg-primary {
+    background-color: #003366 !important; /* Darker blue */
+}
+
+.bg-blue-gradient {
+    background: linear-gradient(45deg, #deedf9, #1E88E5, #1976D2, #1565C0, #0D47A1);
+    color: white;
+}
+
+.bg-img {
+    background-size: cover;
+    color: white;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #BBBBBB;
+}
+
+.card img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.jumbotron {
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+.btn-primary:hover {
+    background-color: #002244;
+    border-color: #002244;
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    text-align: center;
+}
+.card img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
